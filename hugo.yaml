@@ -1,0 +1,70 @@
+baseURL: "https://musaqlain.dev/"
+languageCode: en-us
+title: "Muhammad Saqlain  |  ML Research"
+theme: PaperMod
+paginate: 10
+
+params:
+  env: production
+  defaultTheme: dark
+  disableThemeToggle: false
+  showReadingTime: true
+  showShareButtons: false
+  showPostNavLinks: true
+  showBreadCrumbs: true
+  showCodeCopyButtons: true
+  showToc: true
+  description: "ML Researcher & GSoC 2026 contributor at NumFOCUS. Computer vision for ecological remote sensing. MS Information Technology."
+  keywords:
+    - machine learning
+    - computer vision
+    - deep learning
+    - remote sensing
+    - GSoC 2026
+    - DeepForest
+    - ecological AI
+    - NumFOCUS
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/musaqlain/"
+    - name: github
+      url: "https://github.com/musaqlain"
+    - name: email
+      url: "mailto:2mesaqlain@gmail.com"
+    - name: googlescholar
+      url: "https://scholar.google.com/"
+
+  assets:
+    favicon: "/favicon.ico"
+    theme_color: "#0d0b14"
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: research
+      name: Research
+      url: /research/
+      weight: 20
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 30
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

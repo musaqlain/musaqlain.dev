@@ -1,0 +1,91 @@
+{{ define "main" }}
+<article>
+  <header class="entry-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="entry-content">
+    <div class="projects-list">
+
+      <div class="project-card">
+        <div class="project-header">
+          <h2>DeepForest — Open Source Contributions</h2>
+          <div class="project-links">
+            <a href="https://github.com/weecology/DeepForest" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="project-stack">Python · PyTorch · NumPy · SciPy</p>
+
+        <div class="project-case-study">
+          <p class="case-study-section"><strong>Context:</strong> DeepForest is a widely-used Python package for tree crown detection using deep learning. As a contributor and GSoC 2026 participant, I improved core pipeline performance and developer tooling.</p>
+
+          <ul class="project-details">
+            <li>Refactored IoU matching pipeline — replaced dense matrix allocations with sparse, index-based operations for large-scale evaluation</li>
+            <li>Implemented vectorized coordinate validation for dataset pipeline, improving performance on large datasets</li>
+            <li>Fixed pre-commit pipeline compatibility issues with Python 3.14</li>
+            <li>Added configurable image normalization support for the CropModel</li>
+          </ul>
+        </div>
+
+        <div class="project-tags">
+          <span>Computer Vision</span>
+          <span>Object Detection</span>
+          <span>Open Source</span>
+          <span>Ecology</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h2>ADS Polygon Alignment Pipeline</h2>
+          <div class="project-links">
+            <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC</a>
+          </div>
+        </div>
+        <p class="project-stack">Python · GeoPandas · Rasterio · PyTorch</p>
+
+        <div class="project-case-study">
+          <p class="case-study-section"><strong>Problem:</strong> U.S. Forest Service Aerial Detection Survey polygons are spatially offset by 50-500 meters due to GPS imprecision and flight geometry, making them unreliable as training data for detection models.</p>
+
+          <p class="case-study-section"><strong>Approach:</strong> Designed a hybrid alignment pipeline combining geometric transformations with learned displacement estimation using self-supervised deep learning. Built an energy-function-based optimization for spatial registration of forest survey annotations.</p>
+
+          <ul class="project-details">
+            <li>Designed a hybrid alignment pipeline combining geometric transformations with learned displacement estimation</li>
+            <li>Built energy-function-based optimization for spatial registration of forest survey annotations</li>
+            <li>Processing tens of thousands of historical polygons from the U.S. Forest Service</li>
+          </ul>
+        </div>
+
+        <div class="project-tags">
+          <span>Remote Sensing</span>
+          <span>Image Registration</span>
+          <span>Geospatial</span>
+          <span>Deep Learning</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="other-projects-heading">Other Projects</h2>
+    <div class="projects-list">
+
+      <div class="project-card project-card-secondary">
+        <div class="project-header">
+          <h2>DeepForest vs DeepTrees — Benchmarking</h2>
+          <div class="project-links">
+            <a href="https://github.com/musaqlain" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="project-stack">Python · Jupyter · Matplotlib</p>
+        <ul class="project-details">
+          <li>Comparative analysis of two tree crown detection libraries — architecture differences, training strategies, and prediction accuracy across multiple datasets.</li>
+        </ul>
+        <div class="project-tags">
+          <span>Benchmarking</span>
+          <span>Computer Vision</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>
+{{ end }}

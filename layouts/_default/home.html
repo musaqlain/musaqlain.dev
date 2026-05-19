@@ -1,0 +1,91 @@
+{{ define "main" }}
+<div class="home-content">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-portrait">
+        <img src="/portrait.jpg" alt="Muhammad Saqlain" width="200" height="200" />
+      </div>
+      <div class="hero-text">
+        <h1>Muhammad Saqlain</h1>
+        <p class="hero-subtitle">ML Researcher — Computer Vision, Remote Sensing, Ecological AI</p>
+        <p class="hero-location">Lahore, Pakistan</p>
+        <div class="hero-social">
+          {{- partial "social_icons.html" (dict "align" "") }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary -->
+  <section class="summary-section">
+    <p class="summary-lead">
+      Google Summer of Code 2026 contributor with NumFOCUS, working on the
+      <a href="https://github.com/weecology/DeepForest">DeepForest</a> project.
+      Building automated pipelines for recovering historical forest health survey data
+      using deep learning and image registration.
+    </p>
+    <p>
+      MS student at the University of Education, Lahore, with a software engineering background
+      transitioning into ML research. Focused on applying computer vision and deep learning
+      to ecological remote sensing problems.
+    </p>
+    <p>
+      Actively seeking <strong>fully funded graduate research positions (Fall 2027)</strong>
+      in computer vision, machine learning, or computational ecology.
+    </p>
+    <p class="summary-credentials">
+      GSoC 2026 &middot; NumFOCUS &middot; DeepForest &middot; MS Information Technology
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills-section">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>Machine Learning & Deep Learning</h3>
+        <div class="skill-items">
+          <span>PyTorch</span><span>scikit-learn</span><span>NumPy</span><span>SciPy</span><span>Pandas</span><span>OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Computer Vision & Remote Sensing</h3>
+        <div class="skill-items">
+          <span>Object Detection</span><span>Image Registration</span><span>GeoPandas</span><span>Rasterio</span><span>GDAL</span><span>QGIS</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Software Engineering</h3>
+        <div class="skill-items">
+          <span>Python</span><span>JavaScript</span><span>SQL</span><span>Git</span><span>Docker</span><span>Linux</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Development & Tools</h3>
+        <div class="skill-items">
+          <span>GitHub Actions</span><span>REST APIs</span><span>Jupyter</span><span>Matplotlib</span><span>Hugo</span><span>VS Code</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTAs -->
+  <section class="home-cta">
+    <a href="/research/" class="cta-card">
+      <h3>Research</h3>
+      <p>GSoC 2026 with DeepForest — automated alignment of historical forest health survey data</p>
+    </a>
+    <a href="/projects/" class="cta-card">
+      <h3>Projects</h3>
+      <p>Computer vision, deep learning, and open-source contributions</p>
+    </a>
+    <a href="/blog/" class="cta-card">
+      <h3>Blog</h3>
+      <p>GSoC journey, technical write-ups, and research notes</p>
+    </a>
+  </section>
+
+</div>
+{{ end }}
