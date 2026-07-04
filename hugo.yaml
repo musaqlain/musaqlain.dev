@@ -1,11 +1,13 @@
 baseURL: "https://musaqlain.dev/"
 languageCode: en-us
-title: "Muhammad Saqlain  |  ML Research"
+title: "Muhammad Saqlain  |  ML Researcher"
 theme: PaperMod
 paginate: 10
 
 params:
   env: production
+  author: "Muhammad Saqlain"
+  images: ["og-card.png"]
   defaultTheme: dark
   disableThemeToggle: false
   showReadingTime: true
@@ -14,15 +16,19 @@ params:
   showBreadCrumbs: true
   showCodeCopyButtons: true
   showToc: true
-  description: "ML Researcher & GSoC 2026 contributor at NumFOCUS. Computer vision for ecological remote sensing. MS Information Technology."
+  description: "Muhammad Saqlain — ML researcher in computer vision & ecological remote sensing. 2× Google Summer of Code contributor (NumFOCUS/DeepForest, Google Chromium). Seeking a fully funded US graduate assistantship (RA/TA/GA) for Fall 2027."
   keywords:
-    - machine learning
+    - Muhammad Saqlain
+    - machine learning researcher
     - computer vision
     - deep learning
     - remote sensing
+    - ecological AI
+    - graduate assistantship
+    - research assistantship
+    - PhD applicant
     - GSoC 2026
     - DeepForest
-    - ecological AI
     - NumFOCUS
 
   socialIcons:
@@ -32,31 +38,41 @@ params:
       url: "https://github.com/musaqlain"
     - name: email
       url: "mailto:2mesaqlain@gmail.com"
-    - name: googlescholar
-      url: "https://scholar.google.com/"
 
   assets:
     favicon: "/favicon.ico"
     theme_color: "#0d0b14"
 
+  # Enable a rich, article-style description for OpenGraph/Twitter cards
+  ShowShareButtons: false
+  hideFooter: false
+
 menu:
   main:
-    - identifier: home
-      name: Home
-      url: /
+    - identifier: about
+      name: About
+      url: /#about
       weight: 10
     - identifier: research
       name: Research
-      url: /research/
+      url: /#research
       weight: 20
     - identifier: projects
       name: Projects
-      url: /projects/
+      url: /#projects
       weight: 30
+    - identifier: teaching
+      name: Teaching
+      url: /#teaching
+      weight: 40
+    - identifier: cv
+      name: CV
+      url: /cv/
+      weight: 50
     - identifier: blog
       name: Blog
       url: /blog/
-      weight: 40
+      weight: 60
 
 outputs:
   home:

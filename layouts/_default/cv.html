@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{- $pdf := resources.Get "Saqlain_CV.pdf" -}}
+{{- $pdfURL := "" -}}
+{{- with $pdf }}{{ $pdfURL = .RelPermalink }}{{ end -}}
+{{- /* Fallback to a static-mounted PDF if not found in assets */ -}}
+{{- if not $pdfURL }}{{ $pdfURL = "/cv/Saqlain_CV.pdf" }}{{ end -}}
+
+<div class="cv-page">
+  <div class="cv-head reveal">
+    <a href="/" class="cv-back">← Back to site</a>
+    <h1>Curriculum Vitae</h1>
+    <p class="cv-sub">Muhammad Saqlain · ML Researcher · Computer Vision &amp; Ecological Remote Sensing</p>
+    <div class="cv-actions">
+      <a href="{{ $pdfURL }}" download class="btn btn-primary">Download PDF</a>
+      <a href="{{ $pdfURL }}" target="_blank" rel="noopener" class="btn btn-ghost">Open in new tab</a>
+    </div>
+  </div>
+
+  <div class="cv-frame reveal">
+    <object data="{{ $pdfURL }}#view=FitH" type="application/pdf" aria-label="Muhammad Saqlain CV">
+      <div class="cv-fallback">
+        <p>Your browser can't display the PDF inline.</p>
+        <a href="{{ $pdfURL }}" target="_blank" rel="noopener" class="btn btn-primary">Open the CV in a new tab</a>
+      </div>
+    </object>
+  </div>
+</div>
+{{ end }}

@@ -1,90 +1,491 @@
 {{ define "main" }}
-<div class="home-content">
+<div class="spa">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
+  <!-- ============================================================= -->
+  <!-- HERO                                                          -->
+  <!-- ============================================================= -->
+  <section class="hero" id="top">
+    <div class="hero-aurora" aria-hidden="true"></div>
+    <div class="hero-inner reveal">
       <div class="hero-portrait">
-        <img src="/portrait.jpg" alt="Muhammad Saqlain" width="200" height="200" />
+        <span class="hero-ring" aria-hidden="true"></span>
+        <img src="/portrait.jpg" alt="Portrait of Muhammad Saqlain" width="200" height="200" />
       </div>
       <div class="hero-text">
+        <p class="hero-eyebrow">Machine Learning Researcher</p>
         <h1>Muhammad Saqlain</h1>
-        <p class="hero-subtitle">ML Researcher — Computer Vision, Remote Sensing, Ecological AI</p>
-        <p class="hero-location">Lahore, Pakistan</p>
+        <p class="hero-subtitle">
+          <span class="type-line" data-words="Computer Vision · Remote Sensing · Ecological AI|Recovering data no existing tool can handle|Building research infrastructure for scientists">Computer Vision · Remote Sensing · Ecological AI</span>
+        </p>
+        <p class="hero-lede">
+          Google Summer of Code 2026 contributor in the
+          <strong><a href="https://www.weecology.org/" target="_blank" rel="noopener">Weecology Lab</a></strong>
+          at the University of Florida, recovering historical U.S. Forest Service survey data.
+        </p>
+        <p class="hero-tagline">
+          Prospective <strong>graduate student</strong> seeking a fully funded
+          <strong>Research, Teaching, or Graduate Assistantship</strong> in the U.S. for
+          <strong>Fall 2027</strong>.
+        </p>
+        <div class="hero-actions">
+          <a href="/cv/" class="btn btn-primary">View CV</a>
+          <a href="mailto:2mesaqlain@gmail.com" class="btn btn-ghost">Email me</a>
+        </div>
         <div class="hero-social">
-          {{- partial "social_icons.html" (dict "align" "") }}
+          <a href="https://www.linkedin.com/in/musaqlain/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/musaqlain" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://leetcode.com/u/musaqlain/" target="_blank" rel="noopener">LeetCode</a>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- CREDIBILITY STRIP                                             -->
+  <!-- ============================================================= -->
+  <section class="cred-strip reveal" aria-label="Programs and affiliations">
+    <p class="cred-kicker">Selected into &middot; collaborating with</p>
+    <div class="cred-marks">
+      <a href="https://codeinplace.stanford.edu/" target="_blank" rel="noopener" aria-label="Stanford — Code in Place">
+        <img src="/logos/stanford.png" alt="Stanford" loading="lazy" /></a>
+      <a href="https://summerofcode.withgoogle.com/" target="_blank" rel="noopener" aria-label="Google Summer of Code">
+        <img src="/logos/gsoc.png" alt="Google Summer of Code" loading="lazy" /></a>
+      <a href="https://www.numfocus.org/" target="_blank" rel="noopener" aria-label="NumFOCUS">
+        <img src="/logos/numfocus.png" alt="NumFOCUS" loading="lazy" /></a>
+      <a href="https://www.weecology.org/" target="_blank" rel="noopener" aria-label="University of Florida — Weecology Lab">
+        <img src="/logos/florida.png" alt="University of Florida" loading="lazy" /></a>
+      <a href="https://www.pmu.edu.sa/" target="_blank" rel="noopener" aria-label="Prince Muhammad Bin Fahd University">
+        <img src="/logos/pmu.png" alt="PMU" loading="lazy" /></a>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- STAT STRIP                                                    -->
+  <!-- ============================================================= -->
+  <section class="stat-strip reveal" aria-label="Highlights">
+    <div class="stat">
+      <span class="stat-num" data-count="2" data-suffix="×">0</span>
+      <span class="stat-label">Google Summer of Code</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count="96">0</span>
+      <span class="stat-label">Chromium code contributions</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-prefix="$" data-count="50" data-suffix="K+">0</span>
+      <span class="stat-label">Mentee stipends earned</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-prefix="~" data-count="700">0</span>
+      <span class="stat-label">Students mentored</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count="26">0</span>
+      <span class="stat-label">Students taught · 16 countries</span>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- ABOUT                                                         -->
+  <!-- ============================================================= -->
+  <section class="section" id="about">
+    <div class="section-head reveal">
+      <span class="section-kicker">01 — About</span>
+      <h2>Fixing the data that science can't use</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-lead reveal">
+        <p>
+          I'm a two-time <a href="https://summerofcode.withgoogle.com/" target="_blank" rel="noopener">Google Summer of Code</a>
+          contributor and two-time <a href="https://codeinplace.stanford.edu/" target="_blank" rel="noopener">Stanford Code in Place</a>
+          instructor who builds research infrastructure for scientists working with data that no existing tool can handle.
+        </p>
+        <p>
+          The problem I'm focused on right now: what happens when a government agency spends 75 years collecting forest-damage
+          records, and none of it can be used because the coordinates are wrong? That's the scientific problem I'm solving at
+          the University of Florida's <a href="https://www.weecology.org/" target="_blank" rel="noopener">Weecology Lab</a>,
+          recovering the U.S. Forest Service's Aerial Detection Survey — decades of ecological history, made usable again.
+        </p>
+        <p>
+          My move into research wasn't planned, but it wasn't random either. The more I worked with ecological data, the more I
+          saw that the bottleneck is almost never the algorithm — it's the data itself: coordinates that drift across hardware
+          generations, records in incompatible formats, time series with gaps large enough to break the models that now define
+          what questions we can even ask. The people who can fix this are rare. That's the gap I want to work in.
+        </p>
+      </div>
+      <aside class="about-card reveal">
+        <h3>What I'm looking for</h3>
+        <p>
+          A fully funded U.S. graduate position for <strong>Fall 2027</strong> — a Research, Teaching, or Graduate
+          Assistantship at the intersection of <strong>computer vision and ecological science</strong>. I'm open to a PhD;
+          what I care about most is doing serious, publishable research alongside people who know which questions are worth asking.
+        </p>
+        <ul class="about-facts">
+          <li><span>Focus</span> Computer Vision · Remote Sensing · Computational Ecology</li>
+          <li><span>Status</span> MS Information Technology (in progress, GPA 3.90/4.00)</li>
+          <li><span>Based in</span> Lahore, Pakistan · open to relocation</li>
+          <li><span>English</span> IELTS 7.5 (C1 Advanced)</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- RESEARCH                                                      -->
+  <!-- ============================================================= -->
+  <section class="section" id="research">
+    <div class="section-head reveal">
+      <span class="section-kicker">02 — Research</span>
+      <h2>Research experience</h2>
+      <p class="section-sub">Reproducible methods, open-source science, and computer vision for the real world.</p>
+    </div>
+
+    <div class="timeline">
+
+      <article class="tl-item reveal">
+        <div class="tl-marker" aria-hidden="true"></div>
+        <div class="tl-card">
+          <div class="tl-top">
+            <div>
+              <h3>Recovering Historical Image Data via Automated Ortho-Registration</h3>
+              <p class="tl-org">
+                <a href="https://www.weecology.org/" target="_blank" rel="noopener">Weecology Lab</a>, University of Florida ·
+                <a href="https://www.numfocus.org/" target="_blank" rel="noopener">NumFOCUS</a> /
+                <a href="https://github.com/weecology/DeepForest" target="_blank" rel="noopener">DeepForest</a>
+              </p>
+            </div>
+            <span class="tl-date">May 2026 — Present</span>
+          </div>
+          <span class="tl-badge">Google Summer of Code 2026 · 4.88% acceptance</span>
+          <ul class="tl-points">
+            <li>Selected for <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC 2026</a> to work under four research mentors (1 PI, 2 research scientists, 1 research engineer) on a largely unsolved remote-sensing problem.</li>
+            <li>Built a pipeline to align U.S. Forest Service Aerial Detection Survey polygons with year-matched NAIP satellite imagery, correcting 50–500&nbsp;m spatial offsets caused by GPS imprecision and flight geometry.</li>
+            <li>Designed a hybrid alignment algorithm (inside–outside contrast, contour-to-boundary distance, out-of-bounds penalty) that improved mean IoU from <strong>0.082 → 0.231</strong> on seed pairs.</li>
+            <li>Scaling to ~48,000 Oregon ADS polygons and fine-tuning DeepForest for NAIP-based forest-health detection. The method will be published as a reproducible recipe for long-running survey datasets worldwide.</li>
+            <li>Ran a <a href="https://colab.research.google.com/drive/1cad_aufOj8noouMJksTxZMRiEMEIMD2t" target="_blank" rel="noopener">DeepForest vs. DeepTrees benchmarking study</a> (RetinaNet vs. U-Net + watershed) and presented findings to mentors during selection.</li>
+          </ul>
+          <div class="tl-tags">
+            <span>Remote Sensing</span><span>Image Registration</span><span>PyTorch</span><span>GeoPandas</span><span>Open Science</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-marker" aria-hidden="true"></div>
+        <div class="tl-card">
+          <div class="tl-top">
+            <div>
+              <h3>Research Associate — Computer Vision for Remote Sensing</h3>
+              <p class="tl-org">Center for Artificial Intelligence (CAI), Prince Muhammad Bin Fahd University</p>
+            </div>
+            <span class="tl-date">Jan 2026 — Present</span>
+          </div>
+          <span class="tl-badge tl-badge-alt">First-author manuscript in preparation (Q1 journal)</span>
+          <ul class="tl-points">
+            <li>Working with <a href="https://research.com/scientists-rankings/computer-science/pk" target="_blank" rel="noopener">Pakistan's #1-ranked computer science researcher</a> on how well modern Vision-Language Models perform on remote-sensing imagery — a foundational question for a field where labeled data at scale is a systematic bottleneck.</li>
+            <li>Building pipelines for multi-class classification, semantic segmentation, and object detection across crop-disease diagnosis, satellite-image enhancement, and environmental monitoring.</li>
+            <li>Designing and optimizing neural networks (Vision Transformers and hybrid CNNs) toward state-of-the-art performance on large-scale datasets.</li>
+          </ul>
+          <div class="tl-tags">
+            <span>Vision-Language Models</span><span>Semantic Segmentation</span><span>Precision Agriculture</span><span>ViTs</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-marker" aria-hidden="true"></div>
+        <div class="tl-card">
+          <div class="tl-top">
+            <div>
+              <h3>Chromium OS Contributor — Web Audio Team</h3>
+              <p class="tl-org">
+                <a href="https://summerofcode.withgoogle.com/programs/2025/projects/LzP98Ubl" target="_blank" rel="noopener">Google Summer of Code 2025</a> · Google Chromium
+              </p>
+            </div>
+            <span class="tl-date">May 2025 — Nov 2025</span>
+          </div>
+          <span class="tl-badge tl-badge-alt">5.43% acceptance · 96 CLs · ~95% merge rate</span>
+          <ul class="tl-points">
+            <li>Designed a <a href="https://docs.google.com/document/d/1j03LiWtjIHPO5F8vDN7KkSTToF2v23KN7tBoMHOYqHs/edit" target="_blank" rel="noopener">complexity-scoring system</a> (AST parsing of loops and async logic) to triage 326 test files by difficulty — a data-driven strategy Google engineers adopted as the plan for the team's next seven months.</li>
+            <li>Delivered <a href="https://chromium-review.googlesource.com/q/owner:2mesaqlain@gmail.com" target="_blank" rel="noopener">96 code contributions</a> migrating the Web Audio suite to the W3C <code>testharness.js</code> framework under <a href="https://google.github.io/styleguide/jsguide.html" target="_blank" rel="noopener">Google's strict JS style rules</a>, cutting CI bandwidth by ~187&nbsp;GB/day.</li>
+            <li>Prototyped a <a href="https://github.com/musaqlain/Chromium-Automate-Cls" target="_blank" rel="noopener">generative-AI automation tool</a> (Gemini) that automated ~90% of test-conversion work — highlighted by mentors as a roadmap for AI-assisted workflows in Chromium.</li>
+          </ul>
+          <div class="tl-tags">
+            <span>Testing Infrastructure</span><span>Static Analysis</span><span>Generative AI</span><span>C++ / JS</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PROJECTS                                                      -->
+  <!-- ============================================================= -->
+  <section class="section" id="projects">
+    <div class="section-head reveal">
+      <span class="section-kicker">03 — Projects</span>
+      <h2>Selected projects</h2>
+      <p class="section-sub">Research tooling and full-stack systems, from geospatial pipelines to GenAI products.</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <article class="proj-card reveal">
+        <div class="proj-head">
+          <h3>ADS Polygon Alignment Pipeline</h3>
+          <div class="proj-links">
+            <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC</a>
+          </div>
+        </div>
+        <p class="proj-stack">Python · GeoPandas · Rasterio · GDAL · PyTorch</p>
+        <p>Hybrid energy-based alignment (vegetation contrast + boundary distance) that corrects 50–500&nbsp;m offsets in tens of thousands of historical forest-survey polygons, with a learned refinement planned for the hardest cases — turning an unusable archive into training data.</p>
+        <div class="proj-tags"><span>Remote Sensing</span><span>Image Registration</span></div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head">
+          <h3>DeepForest — Open-Source Contributions</h3>
+          <div class="proj-links">
+            <a href="https://github.com/weecology/DeepForest" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-stack">Python · PyTorch · NumPy · SciPy</p>
+        <p>Contributed to the widely used tree-crown detection library: sparse IoU matching for large-scale evaluation, vectorized coordinate validation, Python 3.14 pre-commit fixes, and configurable normalization for the CropModel.</p>
+        <div class="proj-tags"><span>Object Detection</span><span>Ecology</span></div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head">
+          <h3>Your JobBuddy — GenAI Resume Optimizer</h3>
+          <div class="proj-links">
+            <a href="https://github.com/musaqlain/Your_JobBuddy-FYP_GenAI-" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-stack">Next.js · TypeScript · LLMs</p>
+        <p>Final-year project: a GenAI platform that parses résumés, scores ATS compatibility, and gives context-aware feedback, with real-time editing, multi-template support, and PDF generation.</p>
+        <div class="proj-tags"><span>Generative AI</span><span>Full-Stack</span></div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head">
+          <h3>QuillPDF — Chat with your PDFs</h3>
+          <div class="proj-links">
+            <a href="https://quillpdf-saas-nextjs.vercel.app/" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+        <p class="proj-stack">LangChain · Pinecone · OpenAI · Next.js</p>
+        <p>A RAG-based SaaS for AI conversations with documents, built on a full-stack architecture with Prisma and Tailwind and free/pro subscription tiers.</p>
+        <div class="proj-tags"><span>RAG</span><span>SaaS</span></div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head">
+          <h3>ClearOUT — AI Recycling Assistant</h3>
+          <div class="proj-links">
+            <a href="https://clearout.streamlit.app/" target="_blank" rel="noopener">Live</a>
+            <a href="https://lablab.ai/event/langflow-hackathon/langnochain/clearout" target="_blank" rel="noopener">Submission</a>
+          </div>
+        </div>
+        <p class="proj-stack">LangFlow · LangChain · Image Recognition</p>
+        <p>Led a 6-member international team at the lablab.ai LangFlow Hackathon to build an image-recognition assistant for recycling and reuse.</p>
+        <div class="proj-tags"><span>Hackathon</span><span>Team Lead</span></div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head">
+          <h3>Full-Stack E-Commerce Platforms</h3>
+          <div class="proj-links">
+            <a href="https://www.youtube.com/watch?v=ctk-AUMCzX8" target="_blank" rel="noopener">Shopo</a>
+            <a href="https://www.youtube.com/watch?v=DY2y1AfDSSE" target="_blank" rel="noopener">eCommerc3</a>
+          </div>
+        </div>
+        <p class="proj-stack">MongoDB · Express · React · Node.js</p>
+        <p>Two production-grade MERN applications with Stripe/PayPal payments, role-based dashboards, and 100+ functional modules across both projects.</p>
+        <div class="proj-tags"><span>MERN</span><span>Payments</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- TEACHING & MENTORSHIP                                         -->
+  <!-- ============================================================= -->
+  <section class="section" id="teaching">
+    <div class="section-head reveal">
+      <span class="section-kicker">04 — Teaching</span>
+      <h2>Teaching &amp; mentorship</h2>
+      <p class="section-sub">I teach because the most preventable loss in science is the potential that never gets a first opportunity.</p>
+    </div>
+
+    <div class="teach-grid">
+
+      <article class="teach-card reveal">
+        <div class="teach-head">
+          <h3>Section Leader <span class="teach-tag">2× selection</span></h3>
+          <span class="tl-date">2025 · 2026</span>
+        </div>
+        <p class="tl-org"><a href="https://codeinplace.stanford.edu/" target="_blank" rel="noopener">Stanford University — Code in Place</a></p>
+        <p>Selected twice (in 2026, from ~2,000 candidates) to teach the CS106A Python curriculum for one of the most diverse CS courses on earth (~16,000 enrolled). Over two years I taught <strong>26 students from 16 countries</strong> and was promoted to Section Leader Mentor for 1-on-1 support.
+        <a href="https://digitalcredential.stanford.edu/check/0A2538E3CBA7E1F50433E4F9C16E88DEE82C415BD434D52135CCF0901BBE53DFYWZOcDc3dkZ2UGNNS3Byb2ptSFR2L3l1NTB5Vk1XMEd1Vk4vMlZQNDR3MnNPTVRN" target="_blank" rel="noopener">Credential</a></p>
+      </article>
+
+      <article class="teach-card reveal">
+        <div class="teach-head">
+          <h3>Founder &amp; Mentor</h3>
+          <span class="tl-date">2024 — Present</span>
+        </div>
+        <p class="tl-org"><a href="https://devweekends.com/" target="_blank" rel="noopener">Dev Weekends</a> — Open-Source Mentorship</p>
+        <p>Founded and led a volunteer open-source mentoring drive guiding <strong>~700 students</strong> — many from lower-tier universities with no access to the global research community — toward competitive programs (GSoC, ESoC, LFx, OSPP). In 2026 alone, <strong>11 students</strong> were selected; across two years, mentees have earned over <strong>$50,000</strong> in stipends. <a href="https://www.linkedin.com/posts/musaqlain_alhamdulillah-im-excited-to-share-that-activity-7326342713337921538-5A8J/" target="_blank" rel="noopener">Story</a></p>
+      </article>
+
+      <article class="teach-card reveal">
+        <div class="teach-head">
+          <h3>Trainer &amp; Moderator</h3>
+          <span class="tl-date">2023 — Present</span>
+        </div>
+        <p class="tl-org"><a href="http://icode.guru" target="_blank" rel="noopener">iCodeGuru</a></p>
+        <p>Volunteer teaching in Python, data structures, and algorithms, plus IELTS speaking and writing modules; delivered 25+ lectures on core DSA and LeetCode problem-solving. <a href="http://docs.google.com/spreadsheets/d/1u4bLnVbmkI5wVf_6MfOM1wzKV5_RcciH66ty_zx_MTg/edit" target="_blank" rel="noopener">Recordings</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- HONORS / ACHIEVEMENTS                                         -->
+  <!-- ============================================================= -->
+  <section class="section" id="honors">
+    <div class="section-head reveal">
+      <span class="section-kicker">05 — Honors</span>
+      <h2>Achievements &amp; competitions</h2>
+    </div>
+    <ul class="honor-list">
+      <li class="reveal"><span class="honor-dot">◆</span> <strong>2× Google Summer of Code</strong> — selected in <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">2026 (NumFOCUS/DeepForest)</a> and <a href="https://summerofcode.withgoogle.com/programs/2025/projects/LzP98Ubl" target="_blank" rel="noopener">2025 (Google Chromium)</a>, earning official <code>saqlain@chromium.org</code> contributor status.</li>
+      <li class="reveal"><span class="honor-dot">◆</span> <strong>Mentorship impact</strong> — 11 students selected to GSoC/ESoC/LFx in 2026; mentees have earned <strong>$50,138+</strong> in stipends over two years via <a href="https://devweekends.com/" target="_blank" rel="noopener">Dev Weekends</a>.</li>
+      <li class="reveal"><span class="honor-dot">◆</span> <strong>Competitive programming</strong> — <a href="https://www.linkedin.com/posts/musaqlain_icpcasiatopiregional-competitiveprogramming-activity-7291815703014207488-xgRQ" target="_blank" rel="noopener">ICPC Asia Topi Regional 2024</a>; Bronze (252/850+) at <a href="https://www.linkedin.com/feed/update/urn:li:activity:7266337039162253312" target="_blank" rel="noopener">CALICO 2024 (UC Berkeley)</a>; 73rd/500+ at <a href="https://www.linkedin.com/feed/update/urn:li:activity:7287722976123219968/" target="_blank" rel="noopener">MIT Informatics Tournament 2025</a>; 200+ problems on <a href="https://leetcode.com/u/musaqlain/" target="_blank" rel="noopener">LeetCode</a>.</li>
+      <li class="reveal"><span class="honor-dot">◆</span> <strong>English proficiency</strong> — overall <a href="https://drive.google.com/file/d/1gwIfBDQiRGJTEm0wkXrqSTne2BmKqUrs/view" target="_blank" rel="noopener">IELTS 7.5 (C1 Advanced)</a>.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- EDUCATION + SKILLS                                            -->
+  <!-- ============================================================= -->
+  <section class="section" id="education">
+    <div class="edu-skills">
+      <div class="edu-col reveal">
+        <div class="section-head">
+          <span class="section-kicker">06 — Education</span>
+          <h2>Education</h2>
+        </div>
+        <div class="edu-item">
+          <div class="edu-when">2025 — 2027</div>
+          <div class="edu-what">
+            <h3>MS, Information Technology</h3>
+            <p>University of Education, Lahore · <strong>CGPA 3.90/4.00</strong></p>
+            <p class="edu-course">Research Methodology · Advanced Information Security · Advanced Computer Networks · IoT</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-when">2021 — 2025</div>
+          <div class="edu-what">
+            <h3>BS, Information Technology</h3>
+            <p>University of Education, Lahore · CGPA 3.13/4.00</p>
+            <p class="edu-course">DSA · OS · DBMS · AI · Computer Networks · Statistics &amp; Probability</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-col reveal">
+        <div class="section-head">
+          <span class="section-kicker">07 — Skills</span>
+          <h2>Technical skills</h2>
+        </div>
+        <div class="skill-block">
+          <h3>ML &amp; Deep Learning</h3>
+          <div class="chips"><span>PyTorch</span><span>scikit-learn</span><span>NumPy</span><span>SciPy</span><span>Pandas</span><span>OpenCV</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>Computer Vision &amp; Remote Sensing</h3>
+          <div class="chips"><span>Object Detection</span><span>Image Registration</span><span>GeoPandas</span><span>Rasterio</span><span>GDAL</span><span>QGIS</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>AI Systems</h3>
+          <div class="chips"><span>Generative AI</span><span>LLMs</span><span>RAG</span><span>LangChain</span><span>Pinecone</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>Web &amp; DevOps</h3>
+          <div class="chips"><span>React</span><span>Next.js</span><span>Node.js</span><span>Docker</span><span>CI/CD</span><span>AWS</span><span>Git</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>Languages</h3>
+          <div class="chips"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C++</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Summary -->
-  <section class="summary-section">
-    <p class="summary-lead">
-      Google Summer of Code 2026 contributor with NumFOCUS, working on the
-      <a href="https://github.com/weecology/DeepForest">DeepForest</a> project.
-      Building automated pipelines for recovering historical forest health survey data
-      using deep learning and image registration.
-    </p>
-    <p>
-      MS student at the University of Education, Lahore, with a software engineering background
-      transitioning into ML research. Focused on applying computer vision and deep learning
-      to ecological remote sensing problems.
-    </p>
-    <p>
-      Actively seeking <strong>fully funded graduate research positions (Fall 2027)</strong>
-      in computer vision, machine learning, or computational ecology.
-    </p>
-    <p class="summary-credentials">
-      GSoC 2026 &middot; NumFOCUS &middot; DeepForest &middot; MS Information Technology
-    </p>
-  </section>
-
-  <!-- Skills -->
-  <section class="skills-section">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>Machine Learning & Deep Learning</h3>
-        <div class="skill-items">
-          <span>PyTorch</span><span>scikit-learn</span><span>NumPy</span><span>SciPy</span><span>Pandas</span><span>OpenCV</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Computer Vision & Remote Sensing</h3>
-        <div class="skill-items">
-          <span>Object Detection</span><span>Image Registration</span><span>GeoPandas</span><span>Rasterio</span><span>GDAL</span><span>QGIS</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Software Engineering</h3>
-        <div class="skill-items">
-          <span>Python</span><span>JavaScript</span><span>SQL</span><span>Git</span><span>Docker</span><span>Linux</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Development & Tools</h3>
-        <div class="skill-items">
-          <span>GitHub Actions</span><span>REST APIs</span><span>Jupyter</span><span>Matplotlib</span><span>Hugo</span><span>VS Code</span>
-        </div>
-      </div>
+  <!-- ============================================================= -->
+  <!-- REFERENCES                                                    -->
+  <!-- ============================================================= -->
+  <section class="section" id="references">
+    <div class="section-head reveal">
+      <span class="section-kicker">08 — References</span>
+      <h2>References</h2>
+      <p class="section-sub">Available on request. Contact details provided directly to faculty and admissions committees.</p>
+    </div>
+    <div class="ref-grid">
+      <article class="ref-card reveal">
+        <h3>Dr. Ethan White</h3>
+        <p class="ref-role">Professor &amp; PI, Weecology Lab</p>
+        <p class="ref-org">University of Florida · GSoC 2026 mentor</p>
+        <a href="https://www.linkedin.com/in/etaborwhite/" target="_blank" rel="noopener">LinkedIn →</a>
+      </article>
+      <article class="ref-card reveal">
+        <h3>Dr. Ben Weinstein</h3>
+        <p class="ref-role">Research Scientist, Weecology Lab</p>
+        <p class="ref-org">University of Florida · GSoC 2026 mentor</p>
+        <a href="https://www.linkedin.com/in/ben-weinstein-a88a0846/" target="_blank" rel="noopener">LinkedIn →</a>
+      </article>
+      <article class="ref-card reveal">
+        <h3>Hongchan Choi</h3>
+        <p class="ref-role">Tech Lead &amp; Manager, Google (Chromium)</p>
+        <p class="ref-org">Adjunct Professor, Stanford University</p>
+        <a href="https://www.linkedin.com/in/hongchanchoi/" target="_blank" rel="noopener">LinkedIn →</a>
+      </article>
+      <article class="ref-card reveal">
+        <h3>Dr. Muhammad Attique Khan</h3>
+        <p class="ref-role">Assistant Research Professor, Center for AI</p>
+        <p class="ref-org">Prince Muhammad Bin Fahd University</p>
+        <a href="https://www.linkedin.com/in/dr-muhammad-attique-khan-232811141/" target="_blank" rel="noopener">LinkedIn →</a>
+      </article>
     </div>
   </section>
 
-  <!-- CTAs -->
-  <section class="home-cta">
-    <a href="/research/" class="cta-card">
-      <h3>Research</h3>
-      <p>GSoC 2026 with DeepForest — automated alignment of historical forest health survey data</p>
-    </a>
-    <a href="/projects/" class="cta-card">
-      <h3>Projects</h3>
-      <p>Computer vision, deep learning, and open-source contributions</p>
-    </a>
-    <a href="/blog/" class="cta-card">
-      <h3>Blog</h3>
-      <p>GSoC journey, technical write-ups, and research notes</p>
-    </a>
+  <!-- ============================================================= -->
+  <!-- CONTACT                                                       -->
+  <!-- ============================================================= -->
+  <section class="section contact" id="contact">
+    <div class="contact-inner reveal">
+      <span class="section-kicker">09 — Contact</span>
+      <h2>Let's talk about your lab</h2>
+      <p>
+        I'm seeking a fully funded graduate assistantship (RA / TA / GA) for <strong>Fall 2027</strong> in computer vision,
+        machine learning, or computational ecology. If your research touches any of these, I'd love to hear from you.
+      </p>
+      <div class="contact-actions">
+        <a href="mailto:2mesaqlain@gmail.com" class="btn btn-primary">2mesaqlain@gmail.com</a>
+        <a href="/cv/" class="btn btn-ghost">View CV</a>
+      </div>
+      <div class="contact-social">
+        <a href="https://www.linkedin.com/in/musaqlain/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/musaqlain" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://leetcode.com/u/musaqlain/" target="_blank" rel="noopener">LeetCode</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
   </section>
 
 </div>

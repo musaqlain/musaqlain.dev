@@ -1,5 +1,6 @@
 ---
-title: "Muhammad Saqlain  |  ML Research"
+title: "Muhammad Saqlain — ML Researcher"
 layout: "home"
-description: "ML Researcher & GSoC 2026 contributor at NumFOCUS. Computer vision for ecological remote sensing."
+description: "ML researcher in computer vision & ecological remote sensing. 2× Google Summer of Code contributor (NumFOCUS/DeepForest, Google Chromium). Seeking a fully funded US graduate assistantship (RA/TA/GA) for Fall 2027."
+images: ["/og-card.png"]
 ---

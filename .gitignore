@@ -14,3 +14,12 @@ Thumbs.db
 # Hugo
 hugo_stats.json
 .hugo_build.lock
+
+# Private application materials — never publish to a public repo.
+# (SoP has strategy notes; the CV .tex contains referees' private emails.)
+SoP.md
+Saqlain_CV.tex
+*ALP*.txt
+GUIDE*.txt
+Priority areas*.txt
+*.ipynb
