@@ -4,17 +4,55 @@
   "use strict";
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Reveal on scroll ---- */
-  var reveals = document.querySelectorAll(".reveal");
+  /* ---- Skip-to-content link (a11y) ---- */
+  if (document.querySelector("#about") && !document.querySelector(".skip-link")) {
+    var skip = document.createElement("a");
+    skip.className = "skip-link";
+    skip.href = "#about";
+    skip.textContent = "Skip to content";
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
+  /* ---- Reading-progress bar ---- */
+  var bar = null;
+  if (document.querySelector(".spa")) {
+    var wrap = document.createElement("div");
+    wrap.className = "scroll-progress";
+    bar = document.createElement("span");
+    wrap.appendChild(bar);
+    document.body.appendChild(wrap);
+    var ticking = false;
+    var setProgress = function () {
+      var h = document.documentElement;
+      var max = (h.scrollHeight - h.clientHeight) || 1;
+      bar.style.width = Math.min(100, (h.scrollTop / max) * 100) + "%";
+      ticking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { window.requestAnimationFrame(setProgress); ticking = true; }
+    }, { passive: true });
+    setProgress();
+  }
+
+  /* ---- Reveal on scroll (fail-safe: never leave content hidden) ---- */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  function show(el) { el.classList.add("is-visible"); }
+  var vh = window.innerHeight || document.documentElement.clientHeight;
   if (reduce || !("IntersectionObserver" in window)) {
-    reveals.forEach(function (el) { el.classList.add("is-visible"); });
+    reveals.forEach(show);
   } else {
     var ro = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("is-visible"); obs.unobserve(e.target); }
+        if (e.isIntersecting) { show(e.target); obs.unobserve(e.target); }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    reveals.forEach(function (el) { ro.observe(el); });
+    reveals.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) { show(el); }   /* already on screen — show now */
+      else { ro.observe(el); }
+    });
+    /* safety net: if the observer never fires, don't leave anything invisible */
+    setTimeout(function () { reveals.forEach(show); }, 2600);
   }
 
   /* ---- Animated stat counters ---- */

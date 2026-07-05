@@ -12,10 +12,11 @@
         <img src="/portrait.jpg" alt="Portrait of Muhammad Saqlain" width="200" height="200" />
       </div>
       <div class="hero-text">
+        <span class="hero-status"><span class="status-dot" aria-hidden="true"></span> Available for Spring or Fall 2027</span>
         <p class="hero-eyebrow">Machine Learning Researcher</p>
         <h1>Muhammad Saqlain</h1>
         <p class="hero-subtitle">
-          <span class="type-line" data-words="Computer Vision · Remote Sensing · Ecological AI|Recovering data no existing tool can handle|Building research infrastructure for scientists">Computer Vision · Remote Sensing · Ecological AI</span>
+          <span class="type-line" data-words="Computer Vision · Remote Sensing · Ecological AI|Machine Learning · Deep Learning · AI Systems|Recovering data no existing tool can handle|Building research infrastructure for scientists">Computer Vision · Remote Sensing · Ecological AI</span>
         </p>
         <p class="hero-lede">
           Google Summer of Code 2026 contributor in the
@@ -25,11 +26,11 @@
         <p class="hero-tagline">
           Prospective <strong>graduate student</strong> seeking a fully funded
           <strong>Research, Teaching, or Graduate Assistantship</strong> in the U.S. for
-          <strong>Fall 2027</strong>.
+          <strong>Spring or Fall 2027</strong>.
         </p>
         <div class="hero-actions">
           <a href="/cv/" class="btn btn-primary">View CV</a>
-          <a href="mailto:2mesaqlain@gmail.com" class="btn btn-ghost">Email me</a>
+          <a href="mailto:2mesaqlain@gmail.com?subject=Graduate%20research%20inquiry" class="btn btn-ghost">Email me</a>
         </div>
         <div class="hero-social">
           <a href="https://www.linkedin.com/in/musaqlain/" target="_blank" rel="noopener">LinkedIn</a>
@@ -119,12 +120,14 @@
       <aside class="about-card reveal">
         <h3>What I'm looking for</h3>
         <p>
-          A fully funded U.S. graduate position for <strong>Fall 2027</strong> — a Research, Teaching, or Graduate
-          Assistantship at the intersection of <strong>computer vision and ecological science</strong>. I'm open to a PhD;
-          what I care about most is doing serious, publishable research alongside people who know which questions are worth asking.
+          A fully funded U.S. graduate position for <strong>Spring or Fall 2027</strong> — a Research, Teaching, or
+          Graduate Assistantship. My core is <strong>machine learning and computer vision</strong>; my deepest current
+          work is in remote sensing and computational ecology, but the methods travel, and I'm glad to apply them in
+          other domains. I'm open to a PhD; what matters most to me is serious, publishable research alongside people
+          who know which questions are worth asking.
         </p>
         <ul class="about-facts">
-          <li><span>Focus</span> Computer Vision · Remote Sensing · Computational Ecology</li>
+          <li><span>Focus</span> Machine Learning · Computer Vision · Deep Learning</li>
           <li><span>Status</span> MS Information Technology (in progress, GPA 3.90/4.00)</li>
           <li><span>Based in</span> Lahore, Pakistan · open to relocation</li>
           <li><span>English</span> IELTS 7.5 (C1 Advanced)</li>
@@ -160,13 +163,27 @@
             <span class="tl-date">May 2026 — Present</span>
           </div>
           <span class="tl-badge">Google Summer of Code 2026 · 4.88% acceptance</span>
+          <span class="tl-badge tl-badge-alt">First-author publication in progress · with UF mentors</span>
           <ul class="tl-points">
             <li>Selected for <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC 2026</a> to work under four research mentors (1 PI, 2 research scientists, 1 research engineer) on a largely unsolved remote-sensing problem.</li>
             <li>Built a pipeline to align U.S. Forest Service Aerial Detection Survey polygons with year-matched NAIP satellite imagery, correcting 50–500&nbsp;m spatial offsets caused by GPS imprecision and flight geometry.</li>
             <li>Designed a hybrid alignment algorithm (inside–outside contrast, contour-to-boundary distance, out-of-bounds penalty) that improved mean IoU from <strong>0.082 → 0.231</strong> on seed pairs.</li>
-            <li>Scaling to ~48,000 Oregon ADS polygons and fine-tuning DeepForest for NAIP-based forest-health detection. The method will be published as a reproducible recipe for long-running survey datasets worldwide.</li>
+            <li>Scaling to ~48,000 Oregon ADS polygons and fine-tuning DeepForest for NAIP-based forest-health detection — and <strong>preparing a first-author publication jointly with my University of Florida mentors</strong>, releasing the method as a reproducible recipe for long-running survey datasets worldwide.</li>
             <li>Ran a <a href="https://colab.research.google.com/drive/1cad_aufOj8noouMJksTxZMRiEMEIMD2t" target="_blank" rel="noopener">DeepForest vs. DeepTrees benchmarking study</a> (RetinaNet vs. U-Net + watershed) and presented findings to mentors during selection.</li>
           </ul>
+          <div class="metric-viz" role="img" aria-label="Mean IoU improved from 0.082 baseline to 0.231 after alignment, on seed pairs">
+            <div class="metric-row">
+              <span class="metric-label">Baseline</span>
+              <span class="metric-track"><span class="metric-fill" style="--val: 33%"></span></span>
+              <span class="metric-num">0.082</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Aligned</span>
+              <span class="metric-track"><span class="metric-fill metric-fill-accent" style="--val: 92%"></span></span>
+              <span class="metric-num">0.231</span>
+            </div>
+            <p class="metric-caption">Mean IoU on seed pairs — <strong>2.8× improvement</strong> from the alignment algorithm</p>
+          </div>
           <div class="tl-tags">
             <span>Remote Sensing</span><span>Image Registration</span><span>PyTorch</span><span>GeoPandas</span><span>Open Science</span>
           </div>
@@ -183,7 +200,6 @@
             </div>
             <span class="tl-date">Jan 2026 — Present</span>
           </div>
-          <span class="tl-badge tl-badge-alt">First-author manuscript in preparation (Q1 journal)</span>
           <ul class="tl-points">
             <li>Working with <a href="https://research.com/scientists-rankings/computer-science/pk" target="_blank" rel="noopener">Pakistan's #1-ranked computer science researcher</a> on how well modern Vision-Language Models perform on remote-sensing imagery — a foundational question for a field where labeled data at scale is a systematic bottleneck.</li>
             <li>Building pipelines for multi-class classification, semantic segmentation, and object detection across crop-disease diagnosis, satellite-image enhancement, and environmental monitoring.</li>
@@ -472,11 +488,12 @@
       <span class="section-kicker">09 — Contact</span>
       <h2>Let's talk about your lab</h2>
       <p>
-        I'm seeking a fully funded graduate assistantship (RA / TA / GA) for <strong>Fall 2027</strong> in computer vision,
-        machine learning, or computational ecology. If your research touches any of these, I'd love to hear from you.
+        I'm seeking a fully funded graduate assistantship (RA / TA / GA) for <strong>Spring or Fall 2027</strong> in
+        machine learning and computer vision. My deepest work is in remote sensing and computational ecology, but these
+        methods travel — if your lab applies ML to a different domain, I'd still love to hear from you.
       </p>
       <div class="contact-actions">
-        <a href="mailto:2mesaqlain@gmail.com" class="btn btn-primary">2mesaqlain@gmail.com</a>
+        <a href="mailto:2mesaqlain@gmail.com?subject=Graduate%20research%20inquiry" class="btn btn-primary">2mesaqlain@gmail.com</a>
         <a href="/cv/" class="btn btn-ghost">View CV</a>
       </div>
       <div class="contact-social">

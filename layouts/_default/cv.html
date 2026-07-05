@@ -1,18 +1,22 @@
 {{ define "main" }}
-{{- $pdf := resources.Get "Saqlain_CV.pdf" -}}
-{{- $pdfURL := "" -}}
-{{- with $pdf }}{{ $pdfURL = .RelPermalink }}{{ end -}}
-{{- /* Fallback to a static-mounted PDF if not found in assets */ -}}
-{{- if not $pdfURL }}{{ $pdfURL = "/cv/Saqlain_CV.pdf" }}{{ end -}}
+{{- $pdfURL := "/cv/Saqlain_CV.pdf" -}}
+{{- $transcript := .Params.transcript -}}
 
 <div class="cv-page">
   <div class="cv-head reveal">
-    <a href="/" class="cv-back">← Back to site</a>
+    <a href="/" class="cv-back">← Back to full portfolio</a>
     <h1>Curriculum Vitae</h1>
     <p class="cv-sub">Muhammad Saqlain · ML Researcher · Computer Vision &amp; Ecological Remote Sensing</p>
+    <p class="cv-seeking">Seeking a fully funded U.S. graduate assistantship (RA&nbsp;/&nbsp;TA&nbsp;/&nbsp;GA) for <strong>Spring or Fall 2027</strong></p>
     <div class="cv-actions">
-      <a href="{{ $pdfURL }}" download class="btn btn-primary">Download PDF</a>
-      <a href="{{ $pdfURL }}" target="_blank" rel="noopener" class="btn btn-ghost">Open in new tab</a>
+      <a href="{{ $pdfURL }}" download class="btn btn-primary">Download CV (PDF)</a>
+      {{- with $transcript }}
+      <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-transcript">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+        View Transcript (Google Drive)
+      </a>
+      {{- end }}
+      <a href="{{ $pdfURL }}" target="_blank" rel="noopener" class="btn btn-ghost">Open CV in new tab</a>
     </div>
   </div>
 

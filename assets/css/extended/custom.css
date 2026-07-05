@@ -88,16 +88,74 @@ html { scroll-behavior: smooth; }
 /* ============================================================
    Reveal on scroll
    ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
+.reveal { opacity: 0; }
 .reveal.is-visible {
-  opacity: 1;
-  transform: none;
+  animation: revealIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+/* Staggered entrance for items sharing a grid/list */
+.proj-grid > .reveal:nth-child(2),
+.teach-grid > .reveal:nth-child(2),
+.ref-grid > .reveal:nth-child(2),
+.honor-list > .reveal:nth-child(2) { animation-delay: 0.06s; }
+.proj-grid > .reveal:nth-child(3),
+.teach-grid > .reveal:nth-child(3),
+.ref-grid > .reveal:nth-child(3),
+.honor-list > .reveal:nth-child(3) { animation-delay: 0.12s; }
+.proj-grid > .reveal:nth-child(4),
+.ref-grid > .reveal:nth-child(4),
+.honor-list > .reveal:nth-child(4) { animation-delay: 0.18s; }
+.proj-grid > .reveal:nth-child(5),
+.ref-grid > .reveal:nth-child(5) { animation-delay: 0.24s; }
+.proj-grid > .reveal:nth-child(6) { animation-delay: 0.30s; }
+
+/* Reading-progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 200;
+  background: transparent;
+  pointer-events: none;
+}
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 10px rgba(124, 92, 208, 0.6);
+  transition: width 0.08s linear;
+}
+
+/* Skip-to-content (a11y) */
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 12px;
+  z-index: 300;
+  padding: 0.5rem 1rem;
+  background: var(--accent-2);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 12px; color: #fff; }
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.cred-marks a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ============================================================
@@ -117,14 +175,23 @@ html { scroll-behavior: smooth; }
 }
 .btn-primary {
   color: #fff;
-  background: linear-gradient(120deg, var(--accent-2), var(--accent));
+  background: linear-gradient(120deg, #5b31c2, #7d4fe0);
   box-shadow: 0 8px 26px rgba(124, 92, 208, 0.32);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 34px rgba(124, 92, 208, 0.45);
+  box-shadow: 0 12px 34px rgba(124, 92, 208, 0.5);
+  background: linear-gradient(120deg, #6538d0, #8a5cf0);
   color: #fff;
 }
+/* Button labels must beat the global `[data-theme="dark"] a` link color */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] a.btn-primary { color: #fff; }
+[data-theme="dark"] .btn-ghost,
+[data-theme="dark"] .btn-transcript,
+[data-theme="dark"] a.btn-ghost,
+[data-theme="dark"] a.btn-transcript { color: var(--primary); }
 .btn-ghost {
   color: var(--primary);
   border-color: var(--border);
@@ -751,6 +818,96 @@ html { scroll-behavior: smooth; }
 .contact-social a:hover { color: var(--primary); }
 
 /* ============================================================
+   Hero availability pill
+   ============================================================ */
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--primary);
+  background: rgba(80, 200, 120, 0.10);
+  border: 1px solid rgba(80, 200, 120, 0.32);
+  padding: 0.28rem 0.7rem 0.28rem 0.6rem;
+  border-radius: 999px;
+  margin: 0 0 0.9rem;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #46d17f;
+  box-shadow: 0 0 0 0 rgba(70, 209, 127, 0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(70, 209, 127, 0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(70, 209, 127, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(70, 209, 127, 0); }
+}
+
+/* ============================================================
+   Flagship result metric (IoU)
+   ============================================================ */
+.metric-viz {
+  margin: 1rem 0 0.2rem;
+  padding: 0.9rem 1rem;
+  background: rgba(124, 92, 208, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.metric-row {
+  display: grid;
+  grid-template-columns: 74px 1fr 48px;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+.metric-label {
+  font-size: 0.76rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+.metric-track {
+  height: 9px;
+  background: var(--tertiary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.metric-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 6px;
+  background: var(--accent-dim);
+  transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+.metric-fill-accent { background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+.tl-item.is-visible .metric-fill { width: var(--val); }
+.metric-num {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.metric-caption {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+.metric-caption strong { color: var(--accent); }
+
+/* Timeline marker gentle pulse */
+.tl-item.is-visible .tl-marker { animation: markerPulse 2.6s ease-in-out infinite; }
+@keyframes markerPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(124, 92, 208, 0.18); }
+  50%      { box-shadow: 0 0 0 7px rgba(124, 92, 208, 0.06); }
+}
+
+/* ============================================================
    CV page
    ============================================================ */
 .cv-page { padding: 2rem var(--gap) 3rem; }
@@ -764,8 +921,31 @@ html { scroll-behavior: smooth; }
 }
 .cv-back:hover { color: var(--primary); }
 .cv-head h1 { margin: 0; font-size: 2.1rem; letter-spacing: -0.02em; }
-.cv-sub { color: var(--secondary); font-size: 0.92rem; margin: 0.5rem 0 1.2rem; }
+.cv-sub { color: var(--secondary); font-size: 0.92rem; margin: 0.5rem 0 0.6rem; }
+.cv-seeking {
+  font-size: 0.9rem;
+  color: var(--content);
+  margin: 0 auto 1.3rem;
+  max-width: 34rem;
+}
+.cv-seeking strong { color: var(--accent); }
 .cv-actions { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; }
+.btn-transcript {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--primary);
+  background: rgba(124, 92, 208, 0.14);
+  border: 1px solid var(--accent-dim);
+}
+.btn-transcript svg { flex-shrink: 0; }
+.btn-transcript:hover {
+  transform: translateY(-2px);
+  background: rgba(124, 92, 208, 0.24);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-subtle);
+  color: var(--primary);
+}
 .cv-frame {
   margin-top: 1.6rem;
   border: 1px solid var(--border);
@@ -823,8 +1003,36 @@ html { scroll-behavior: smooth; }
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
-  .hero-aurora, .hero-ring, .scroll-cue span { animation: none; }
+  .reveal { opacity: 1 !important; animation: none !important; }
+  .hero-aurora, .hero-ring, .scroll-cue span, .status-dot,
+  .tl-item.is-visible .tl-marker { animation: none !important; }
+  .metric-fill { transition: none !important; }
+  .tl-item.is-visible .metric-fill { width: var(--val); }
+  .scroll-progress span { transition: none; }
   .type-line { border-right: none; }
   * { animation-duration: 0.001ms !important; }
+}
+
+/* ============================================================
+   Print — clean CV-style output if a professor saves the page
+   ============================================================ */
+@media print {
+  .header, .footer, .scroll-cue, .scroll-progress, .hero-aurora,
+  .hero-ring, .skip-link, .top-link, #menu, .hero-actions, .hero-social,
+  .contact-actions, .contact-social { display: none !important; }
+  html, body { background: #fff !important; }
+  body, .spa, .section, p, li, h1, h2, h3, h4, span, a {
+    color: #111 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+  }
+  .reveal { opacity: 1 !important; animation: none !important; }
+  .section { padding: 0.8rem 0 !important; page-break-inside: avoid; }
+  .tl-card, .proj-card, .teach-card, .ref-card, .about-card, .cred-marks a {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  .cred-marks img { filter: none !important; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.7em; color: #555; }
 }

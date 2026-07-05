@@ -1,0 +1,24 @@
+{{- /* Structured data: Person schema on the home page for richer search results */ -}}
+{{- if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Muhammad Saqlain",
+  "url": "{{ "" | absURL }}",
+  "image": "{{ "portrait.jpg" | absURL }}",
+  "jobTitle": "Machine Learning Researcher",
+  "description": "ML researcher in computer vision and ecological remote sensing; 2x Google Summer of Code contributor. Seeking a fully funded US graduate assistantship (RA/TA/GA) for Spring or Fall 2027.",
+  "knowsAbout": ["Computer Vision", "Remote Sensing", "Deep Learning", "Image Registration", "Ecological AI", "Machine Learning"],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Education, Lahore"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/musaqlain/",
+    "https://github.com/musaqlain",
+    "https://leetcode.com/u/musaqlain/"
+  ]
+}
+</script>
+{{- end }}
