@@ -619,6 +619,10 @@ button:focus-visible,
   border-radius: 5px;
 }
 
+/* ---- Publications ---- */
+.pub-list { display: grid; gap: 1rem; }
+.pub-list .tl-org { margin-top: 0.35rem; }
+
 /* ---- Projects ---- */
 .proj-grid {
   display: grid;

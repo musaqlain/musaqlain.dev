@@ -57,6 +57,10 @@ menu:
       name: Research
       url: /#research
       weight: 20
+    - identifier: publications
+      name: Publications
+      url: /#publications
+      weight: 25
     - identifier: projects
       name: Projects
       url: /#projects
