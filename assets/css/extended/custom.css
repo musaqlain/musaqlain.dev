@@ -187,11 +187,13 @@ button:focus-visible,
 }
 /* Button labels must beat the global `[data-theme="dark"] a` link color */
 [data-theme="dark"] .btn-primary,
-[data-theme="dark"] a.btn-primary { color: #fff; }
-[data-theme="dark"] .btn-ghost,
 [data-theme="dark"] .btn-transcript,
-[data-theme="dark"] a.btn-ghost,
-[data-theme="dark"] a.btn-transcript { color: var(--primary); }
+[data-theme="dark"] .btn-ielts,
+[data-theme="dark"] a.btn-primary,
+[data-theme="dark"] a.btn-transcript,
+[data-theme="dark"] a.btn-ielts { color: #fff; }
+[data-theme="dark"] .btn-ghost,
+[data-theme="dark"] a.btn-ghost { color: var(--primary); }
 .btn-ghost {
   color: var(--primary);
   border-color: var(--border);
@@ -930,21 +932,43 @@ button:focus-visible,
 }
 .cv-seeking strong { color: var(--accent); }
 .cv-actions { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; }
+
+/* Transcript — prominent brand-purple fill so a professor spots it instantly */
 .btn-transcript {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: var(--primary);
-  background: rgba(124, 92, 208, 0.14);
-  border: 1px solid var(--accent-dim);
+  color: #fff;
+  background: linear-gradient(120deg, #5b31c2, #7d4fe0);
+  border: 1px solid transparent;
+  box-shadow: 0 8px 26px rgba(124, 92, 208, 0.32);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
 }
 .btn-transcript svg { flex-shrink: 0; }
 .btn-transcript:hover {
   transform: translateY(-2px);
-  background: rgba(124, 92, 208, 0.24);
-  border-color: var(--accent);
-  box-shadow: 0 8px 24px var(--accent-subtle);
-  color: var(--primary);
+  background: linear-gradient(120deg, #6538d0, #8a5cf0);
+  box-shadow: 0 12px 34px rgba(124, 92, 208, 0.5);
+  color: #fff;
+}
+
+/* IELTS — brand red so the score button stands out on landing */
+.btn-ielts {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #fff;
+  background: linear-gradient(120deg, #c8102e, #e4002b);
+  border: 1px solid transparent;
+  box-shadow: 0 8px 26px rgba(210, 20, 50, 0.34);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+.btn-ielts svg { flex-shrink: 0; }
+.btn-ielts:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(120deg, #d81130, #f4153a);
+  box-shadow: 0 12px 34px rgba(210, 20, 50, 0.5);
+  color: #fff;
 }
 .cv-frame {
   margin-top: 1.6rem;
