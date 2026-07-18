@@ -1063,4 +1063,52 @@ button:focus-visible,
   }
   .cred-marks img { filter: none !important; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.7em; color: #555; }
+  .section-kicker::before { display: none !important; }
 }
+
+/* ============================================================
+   Section-header icon system
+   ------------------------------------------------------------
+   One consistent line-icon set (Feather-style, 24px grid),
+   coloured with the theme accent via CSS mask so it adapts to
+   light/dark. Applies the guide's "visual language / geometric
+   consistency" and gives the eye a scan anchor per section —
+   restrained, not decorative cartoons.
+   ============================================================ */
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  /* fallback icon (a ring) so a kicker without a mapping never shows a block */
+  --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3C/svg%3E");
+}
+.section-kicker::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  background-color: var(--accent);
+  -webkit-mask: var(--sec-icon) center / contain no-repeat;
+          mask: var(--sec-icon) center / contain no-repeat;
+}
+
+/* 01 About — person */
+#about .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E"); }
+/* 02 Research — flask */
+#research .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 3h6'/%3E%3Cpath d='M10 3v6l-4.5 8.5A2 2 0 0 0 7.3 21h9.4a2 2 0 0 0 1.8-3.5L14 9V3'/%3E%3Cpath d='M7 15h10'/%3E%3C/svg%3E"); }
+/* 03 Publications — document */
+#publications .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M9 13h6M9 17h4'/%3E%3C/svg%3E"); }
+/* 04 Projects — code */
+#projects .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 18l6-6-6-6M8 6l-6 6 6 6'/%3E%3C/svg%3E"); }
+/* 05 Teaching — graduation cap */
+#teaching .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 10L12 5 2 10l10 5 10-5z'/%3E%3Cpath d='M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5'/%3E%3C/svg%3E"); }
+/* 06 Honors — award */
+#honors .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='6'/%3E%3Cpath d='M15.5 13.5 17 22l-5-3-5 3 1.5-8.5'/%3E%3C/svg%3E"); }
+/* 07 Education — book */
+#education .edu-col .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3C/svg%3E"); }
+/* 08 Skills — sliders */
+#education .skills-col .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6'/%3E%3C/svg%3E"); }
+/* 09 References — message */
+#references .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E"); }
+/* 10 Contact — mail */
+#contact .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E"); }
