@@ -1143,13 +1143,21 @@ button:focus-visible,
 }
 
 .post-content .post-dek dt {
+  /* the theme sets .md-content dt{width:25%}; as a grid item in a max-content
+     track that percentage collapses to min-content, and the inherited
+     word-break:break-word from reset.css then breaks the label per character. */
+  width: auto;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
   margin: 0;
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--secondary);
-  line-height: 1.75;
+  /* match the dd line box (0.95rem x 1.6) so label and value baselines align */
+  line-height: 1.52rem;
 }
 
 /* cancel PaperMod's stacked-list spacing inside the dek grid */
@@ -1157,6 +1165,9 @@ button:focus-visible,
 .post-content .post-dek dd ~ dd { margin-top: 0; }
 
 .post-content .post-dek dd {
+  /* theme sets width:75% and padding-inline-start:10px on dd */
+  width: auto;
+  padding-inline-start: 0;
   margin: 0;
   font-size: 0.95rem;
   color: var(--content);
