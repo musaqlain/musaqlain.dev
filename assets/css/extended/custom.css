@@ -1112,3 +1112,125 @@ button:focus-visible,
 #references .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E"); }
 /* 10 Contact — mail */
 #contact .section-kicker { --sec-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E"); }
+
+/* ============================================================
+   Blog posts — metadata dek, series cross-links, tables, callouts
+   ============================================================ */
+
+/* --- Metadata block that opens a long-form post --- */
+.post-content .post-dek {
+  margin: 0 0 2.2rem;
+  padding: 1.15rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.post-content .post-dek .dek-title {
+  margin: 0 0 0.85rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.post-content .post-dek dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1.25rem;
+  margin: 0;
+}
+
+.post-content .post-dek dt {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  line-height: 1.75;
+}
+
+/* cancel PaperMod's stacked-list spacing inside the dek grid */
+.post-content .post-dek dt ~ dt,
+.post-content .post-dek dd ~ dd { margin-top: 0; }
+
+.post-content .post-dek dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--content);
+}
+
+@media (max-width: 560px) {
+  .post-content .post-dek dl { grid-template-columns: 1fr; gap: 0.1rem; }
+  .post-content .post-dek dd { margin-bottom: 0.7rem; }
+  .post-content .post-dek dd:last-child { margin-bottom: 0; }
+}
+
+/* --- Cross-links between posts in the GSoC series --- */
+.post-content .series-link {
+  margin: 2rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--accent-subtle);
+}
+
+.post-content .series-link .series-kicker {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.post-content .series-link p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Wide tables scroll inside the column (see layouts/_markup/render-table.html) --- */
+.post-content .table-wrap {
+  margin-bottom: var(--content-gap);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
+.post-content .table-wrap table {
+  margin-bottom: 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.post-content .table-wrap th {
+  background: var(--tertiary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .post-content .table-wrap tbody tr:nth-child(even) {
+  background: rgba(120, 100, 220, 0.045);
+}
+
+.post-content .table-wrap tbody tr:nth-child(even) {
+  background: var(--accent-subtle);
+}
+
+/* --- Blockquotes are used as key-finding callouts in these posts --- */
+.post-content blockquote {
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem;
+  border-inline-start: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--accent-subtle);
+  font-style: normal;
+}
+
+.post-content blockquote p:last-child { margin-bottom: 0; }

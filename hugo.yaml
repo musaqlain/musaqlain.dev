@@ -57,10 +57,11 @@ menu:
       name: Research
       url: /#research
       weight: 20
-    - identifier: publications
-      name: Publications
-      url: /#publications
-      weight: 25
+    # --- Publications nav entry temporarily hidden 2026-08-24 (see layouts/_default/home.html); uncomment the four lines below to restore ---
+#     - identifier: publications
+#       name: Publications
+#       url: /#publications
+#       weight: 25
     - identifier: projects
       name: Projects
       url: /#projects

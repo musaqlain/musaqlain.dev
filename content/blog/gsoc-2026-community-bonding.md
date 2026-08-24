@@ -2,6 +2,7 @@
 title: "GSoC 2026: My Journey to NumFOCUS & DeepForest"
 date: 2026-05-19
 description: "How I got selected for Google Summer of Code 2026 with NumFOCUS, my community mentorship journey, the project I'll be working on, and what's ahead."
+summary: "How I got selected for Google Summer of Code 2026 with NumFOCUS, the community I mentor alongside it, and the forest-health research project I will spend the summer on."
 tags: ["gsoc", "numfocus", "deepforest", "computer-vision", "remote-sensing", "open-source"]
 showToc: true
 ---
