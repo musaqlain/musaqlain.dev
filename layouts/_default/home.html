@@ -106,7 +106,7 @@
         </p>
         <p>
           The problem I'm focused on right now: what happens when a government agency spends 75 years collecting forest-damage
-          records, and none of it can be used because the coordinates are wrong? That's the scientific problem I'm solving at
+          records, and none of it can be used because the boundaries are wrong? That's the scientific problem I'm solving at
           the University of Florida's <a href="https://www.weecology.org/" target="_blank" rel="noopener">Weecology Lab</a>,
           recovering the U.S. Forest Service's Aerial Detection Survey — decades of ecological history, made usable again.
         </p>
@@ -153,39 +153,40 @@
         <div class="tl-card">
           <div class="tl-top">
             <div>
-              <h3>Recovering Historical Image Data via Automated Ortho-Registration</h3>
+              <h3>Recovering Forest Damage Boundaries from Aerial Imagery</h3>
               <p class="tl-org">
                 <a href="https://www.weecology.org/" target="_blank" rel="noopener">Weecology Lab</a>, University of Florida ·
                 <a href="https://www.numfocus.org/" target="_blank" rel="noopener">NumFOCUS</a> /
                 <a href="https://github.com/weecology/DeepForest" target="_blank" rel="noopener">DeepForest</a>
               </p>
             </div>
-            <span class="tl-date">May 2026 — Present</span>
+            <span class="tl-date">May 2026 — Aug 2026</span>
           </div>
           <span class="tl-badge">Google Summer of Code 2026 · 4.88% acceptance</span>
-          <span class="tl-badge tl-badge-alt">First-author publication in progress · with UF mentors</span>
+          <span class="tl-badge tl-badge-alt">Co-author · DeepForest 2.0 paper (JOSS, in preparation)</span>
           <ul class="tl-points">
-            <li>Selected for <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC 2026</a> to work with my mentors <strong>Dr. Ethan White</strong> (PI), <strong>Ben Weinstein</strong> &amp; <strong>Josh Veitch-Michaelis</strong> (research scientists), and <strong>Henry Senyondo</strong> (research engineer) on a largely unsolved remote-sensing problem.</li>
-            <li>Built a pipeline to align U.S. Forest Service Aerial Detection Survey polygons with year-matched NAIP satellite imagery, correcting 50–500&nbsp;m spatial offsets caused by GPS imprecision and flight geometry.</li>
-            <li>Designed a hybrid alignment algorithm (inside–outside contrast, contour-to-boundary distance, out-of-bounds penalty) that improved mean IoU from <strong>0.082 → 0.231</strong> on seed pairs.</li>
-            <li>Scaling to ~48,000 Oregon ADS polygons and fine-tuning DeepForest for NAIP-based forest-health detection — and <strong>preparing a first-author publication jointly with my University of Florida mentors</strong>, releasing the method as a reproducible recipe for long-running survey datasets worldwide.</li>
+            <li>Selected for <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC 2026</a> (proposal: “Recovering Historical Image Data Using Automated Ortho-Registration”) to work with my mentors <strong>Dr. Ethan White</strong> (PI), <strong>Ben Weinstein</strong> &amp; <strong>Josh Veitch-Michaelis</strong> (research scientists), and <strong>Henry Senyondo</strong> (research engineer) on a largely unsolved remote-sensing problem.</li>
+            <li>Tested the planned alignment approach on U.S. Forest Service Aerial Detection Survey polygons first and showed it cannot work: no shift, rotation, or scale recovers the true boundary, because the polygons have the wrong shape, not just the wrong position. Re-scoped the project to semantic segmentation.</li>
+            <li>Built the missing ground truth by hand (151 damage sites traced, 133 damage-free sites verified; 284 tiles of 30&nbsp;cm imagery) and fine-tuned a TreeFinder-pretrained U-Net: region IoU rose from 0.115 (the survey polygon itself) to <strong>0.268</strong>, a 2.3× gain under geography-split cross-validation.</li>
+            <li>Found that pixel scale, not data volume, was the bottleneck: cutting fixed 0.60&nbsp;m/px crops more than doubled IoU (0.116 → 0.257) and lifted zero-shot IoU from 0.040 to 0.108 with no training.</li>
+            <li>Released the <a href="https://github.com/weecology/forest-damage-segmentation" target="_blank" rel="noopener">code</a> and a <a href="/blog/gsoc-2026-final-report/">final report</a> with all 29 logged runs, including failures; running it on all ~48,000 Oregon polygons is the next step.</li>
             <li>Ran a <a href="https://colab.research.google.com/drive/1cad_aufOj8noouMJksTxZMRiEMEIMD2t" target="_blank" rel="noopener">DeepForest vs. DeepTrees benchmarking study</a> (RetinaNet vs. U-Net + watershed) and presented findings to mentors during selection.</li>
           </ul>
-          <div class="metric-viz" role="img" aria-label="Mean IoU improved from 0.082 baseline to 0.231 after alignment, on seed pairs">
+          <div class="metric-viz" role="img" aria-label="Region IoU improved from 0.115 for the survey polygon itself to 0.268 for the fine-tuned model, under geography-split cross-validation">
             <div class="metric-row">
-              <span class="metric-label">Baseline</span>
-              <span class="metric-track"><span class="metric-fill" style="--val: 33%"></span></span>
-              <span class="metric-num">0.082</span>
+              <span class="metric-label">Polygon</span>
+              <span class="metric-track"><span class="metric-fill" style="--val: 38%"></span></span>
+              <span class="metric-num">0.115</span>
             </div>
             <div class="metric-row">
-              <span class="metric-label">Aligned</span>
-              <span class="metric-track"><span class="metric-fill metric-fill-accent" style="--val: 92%"></span></span>
-              <span class="metric-num">0.231</span>
+              <span class="metric-label">Model</span>
+              <span class="metric-track"><span class="metric-fill metric-fill-accent" style="--val: 89%"></span></span>
+              <span class="metric-num">0.268</span>
             </div>
-            <p class="metric-caption">Mean IoU on seed pairs — <strong>2.8× improvement</strong> from the alignment algorithm</p>
+            <p class="metric-caption">Region IoU, geography-split cross-validation — <strong>2.3× improvement</strong> over the survey polygon</p>
           </div>
           <div class="tl-tags">
-            <span>Remote Sensing</span><span>Image Registration</span><span>PyTorch</span><span>GeoPandas</span><span>Open Science</span>
+            <span>Remote Sensing</span><span>Semantic Segmentation</span><span>PyTorch</span><span>GeoPandas</span><span>Open Science</span>
           </div>
         </div>
       </article>
@@ -195,16 +196,14 @@
         <div class="tl-card">
           <div class="tl-top">
             <div>
-              <h3>Research Associate — Computer Vision for Remote Sensing</h3>
+              <h3>Junior Research Assistant — Computer Vision for Remote Sensing</h3>
               <p class="tl-org">Center for Artificial Intelligence (CAI), Prince Muhammad Bin Fahd University</p>
             </div>
             <span class="tl-date">Jan 2026 — Present</span>
           </div>
-          <span class="tl-badge tl-badge-alt">First-author manuscript in progress · with the PMU Center for AI</span>
           <ul class="tl-points">
-            <li>Working with <a href="https://research.com/scientists-rankings/computer-science/pk" target="_blank" rel="noopener">Pakistan's #1-ranked computer science researcher</a> on computer vision for remote sensing and precision agriculture — a field where labeled data at scale is a systematic bottleneck.</li>
             <li>Building pipelines for multi-class classification, semantic segmentation, and object detection across crop-disease diagnosis, satellite-image enhancement, and environmental monitoring.</li>
-            <li>Benchmarking <strong>Vision Transformer (ViT)</strong> backbones against hybrid CNN–Transformer architectures, working toward a <strong>first-author manuscript</strong> on remote-sensing-based crop-disease detection.</li>
+            <li>Benchmarking <strong>Vision Transformer (ViT)</strong> backbones against hybrid CNN–Transformer architectures for remote-sensing-based crop-disease detection.</li>
           </ul>
           <div class="tl-tags">
             <span>Vision-Language Models</span><span>Semantic Segmentation</span><span>Precision Agriculture</span><span>ViTs</span>
@@ -257,7 +256,7 @@
     <div class="section-head reveal">
       <span class="section-kicker">03 — Publications</span>
       <h2>Publications &amp; manuscripts</h2>
-      <p class="section-sub">A first-author manuscript in preparation from my current research — co-authored with my University of Florida mentors.</p>
+      <p class="section-sub">A paper in preparation with the Weecology Lab, University of Florida.</p>
     </div>
 
     <div class="pub-list">
@@ -265,12 +264,12 @@
       <article class="tl-card reveal">
         <div class="tl-top">
           <div>
-            <h3>Automated Ortho-Registration of Historical Aerial Detection Survey Data to NAIP Imagery for Forest-Health Monitoring</h3>
-            <p class="tl-org"><strong>Saqlain, M.</strong>, Veitch-Michaelis, J., Senyondo, H., Weinstein, B., &amp; White, E.</p>
+            <h3>DeepForest 2.0: Airborne object detection and classification for ecologists</h3>
+            <p class="tl-org">Journal of Open Source Software</p>
           </div>
           <span class="tl-date">In preparation</span>
         </div>
-        <span class="tl-badge">First author</span>
+        <span class="tl-badge">Co-author</span>
         <span class="tl-badge tl-badge-alt">Weecology Lab, University of Florida</span>
       </article>
 
@@ -292,14 +291,15 @@
 
       <article class="proj-card reveal">
         <div class="proj-head">
-          <h3>ADS Polygon Alignment Pipeline</h3>
+          <h3>Forest Damage Boundary Segmentation</h3>
           <div class="proj-links">
-            <a href="https://summerofcode.withgoogle.com/programs/2026/projects/jLoU4DCV" target="_blank" rel="noopener">GSoC</a>
+            <a href="https://github.com/weecology/forest-damage-segmentation" target="_blank" rel="noopener">GitHub</a>
+            <a href="/blog/gsoc-2026-final-report/">Report</a>
           </div>
         </div>
         <p class="proj-stack">Python · GeoPandas · Rasterio · GDAL · PyTorch</p>
-        <p>Hybrid energy-based alignment (vegetation contrast + boundary distance) that corrects 50–500&nbsp;m offsets in tens of thousands of historical forest-survey polygons, with a learned refinement planned for the hardest cases — turning an unusable archive into training data.</p>
-        <div class="proj-tags"><span>Remote Sensing</span><span>Image Registration</span></div>
+        <p>A U-Net fine-tuned on 284 hand-reviewed 30&nbsp;cm tiles that redraws rough U.S. Forest Service survey polygons from aerial imagery: region IoU 0.115 → 0.268 (2.3×). The main finding was that pixel scale, not data volume, was the bottleneck. All 29 runs, including failures, are logged and public.</p>
+        <div class="proj-tags"><span>Remote Sensing</span><span>Semantic Segmentation</span></div>
       </article>
 
       <article class="proj-card reveal">
@@ -453,7 +453,7 @@
         </div>
         <div class="skill-block">
           <h3>Computer Vision &amp; Remote Sensing</h3>
-          <div class="chips"><span>Object Detection</span><span>Image Registration</span><span>GeoPandas</span><span>Rasterio</span><span>GDAL</span><span>QGIS</span></div>
+          <div class="chips"><span>Object Detection</span><span>Semantic Segmentation</span><span>Image Registration</span><span>GeoPandas</span><span>Rasterio</span><span>GDAL</span><span>QGIS</span></div>
         </div>
         <div class="skill-block">
           <h3>AI Systems</h3>
@@ -510,12 +510,6 @@
         <p class="ref-role">Tech Lead &amp; Manager, Google (Chromium)</p>
         <p class="ref-org">Adjunct Professor, Stanford University</p>
         <a href="https://www.linkedin.com/in/hongchanchoi/" target="_blank" rel="noopener">LinkedIn →</a>
-      </article>
-      <article class="ref-card reveal">
-        <h3>Dr. Muhammad Attique Khan</h3>
-        <p class="ref-role">Assistant Research Professor, Center for AI</p>
-        <p class="ref-org">Prince Muhammad Bin Fahd University</p>
-        <a href="https://www.linkedin.com/in/dr-muhammad-attique-khan-232811141/" target="_blank" rel="noopener">LinkedIn →</a>
       </article>
     </div>
   </section>
